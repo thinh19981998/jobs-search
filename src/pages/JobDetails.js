@@ -10,15 +10,12 @@ import './JobDetails.scss';
 function JobDetails({ goBackToHome }) {
   let { id } = useParams();
   const [job, setJob] = useState({});
-  const [isLoading, setIsLoading] = useState(false);
 
   const getJobData = useCallback(async () => {
-    setIsLoading(true);
     await getJobById(id).then((res) => {
       setJob(res.data);
     });
-    setIsLoading(false);
-  }, [id, setIsLoading]);
+  }, [id]);
 
   useEffect(() => {
     getJobData();
