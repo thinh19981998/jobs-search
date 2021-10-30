@@ -17,6 +17,7 @@ function Home({
   locationSubmitHandler,
   levelSubmitHandler,
   categorySubmitHandler,
+  isLoading,
 }) {
   const onChange = (page) => {
     fetchJobsByPage(page);
@@ -33,6 +34,7 @@ function Home({
         locationSubmitHandler={locationSubmitHandler}
         levelSubmitHandler={levelSubmitHandler}
         categorySubmitHandler={categorySubmitHandler}
+        isLoading={isLoading}
       />
       {jobList.length > 0 && (
         <Pagination

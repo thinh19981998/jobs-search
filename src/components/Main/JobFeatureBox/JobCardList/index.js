@@ -2,7 +2,7 @@ import React from 'react';
 import JobCard from './JobCard';
 import './index.scss';
 
-function JobCardList({ jobList }) {
+function JobCardList({ jobList, isLoading }) {
   let rederJobList;
   if (jobList.length > 0) {
     rederJobList = jobList.map((item) => {
@@ -21,7 +21,11 @@ function JobCardList({ jobList }) {
       );
     });
   } else {
-    rederJobList = <h3 className='no-job'>No jobs found</h3>;
+    rederJobList = isLoading ? (
+      <h3 className='no-job'>Loading...</h3>
+    ) : (
+      <h3 className='no-job'>No jobs found</h3>
+    );
   }
 
   return <div className='job-list'>{rederJobList}</div>;

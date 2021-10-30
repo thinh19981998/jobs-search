@@ -53,13 +53,16 @@ function App() {
     level: null,
     category: null,
   });
+  const [isLoading, setIsLoading] = useState(false);
 
-  const fetchJobList = useCallback(() => {
+  const fetchJobList = useCallback(async () => {
+    setIsLoading(true);
     const urlQuery = queryString.stringify(query, { skipNull: true });
-    getJobs(urlQuery).then((res) => {
+    await getJobs(urlQuery).then((res) => {
       setJobList(res.data.results.slice(0, 5));
     });
-  }, [query]);
+    setIsLoading(false);
+  }, [query, setIsLoading]);
 
   useEffect(() => {
     fetchJobList();
@@ -117,6 +120,7 @@ function App() {
           locationSubmitHandler={locationSubmitHandler}
           categorySubmitHandler={categorySubmitHandler}
           levelSubmitHandler={levelSubmitHandler}
+          isLoading={isLoading}
         />
       </Route>
       <Route path='/job-details/:id'>

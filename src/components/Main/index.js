@@ -10,6 +10,7 @@ function Main({
   levelSubmitHandler,
   categorySubmitHandler,
   locationSubmitHandler,
+  isLoading,
 }) {
   return (
     <main>
@@ -21,6 +22,7 @@ function Main({
         levelSubmitHandler={levelSubmitHandler}
         categorySubmitHandler={categorySubmitHandler}
         locationSubmitHandler={locationSubmitHandler}
+        isLoading={isLoading}
       />
     </main>
   );

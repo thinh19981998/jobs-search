@@ -10,6 +10,7 @@ function JobFeatureBox({
   levelSubmitHandler,
   categorySubmitHandler,
   locationSubmitHandler,
+  isLoading,
 }) {
   return (
     <div className='job-feature-box'>
@@ -20,7 +21,7 @@ function JobFeatureBox({
         categorySubmitHandler={categorySubmitHandler}
         locationSubmitHandler={locationSubmitHandler}
       />
-      <JobCardList jobList={jobList} />
+      <JobCardList jobList={jobList} isLoading={isLoading} />
     </div>
   );
 }
