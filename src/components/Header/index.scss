@@ -1,0 +1,19 @@
+.header-link {
+  text-decoration: none;
+  cursor: unset;
+}
+
+.heading {
+  display: inline-block;
+  font-family: Poppins;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 36px;
+  color: #282538;
+  font-weight: 300;
+  margin: 3.2rem 0;
+  cursor: pointer;
+  &--main {
+    font-weight: bold;
+  }
+}

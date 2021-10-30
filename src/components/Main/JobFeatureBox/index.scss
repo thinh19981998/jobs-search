@@ -1,0 +1,9 @@
+.job-feature-box {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 4rem;
+
+  @media (max-width: 1201px) {
+    flex-direction: column;
+  }
+}

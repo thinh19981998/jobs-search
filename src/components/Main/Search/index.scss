@@ -1,0 +1,53 @@
+.search-container {
+  background-image: url('https://s3-alpha-sig.figma.com/img/819d/1e39/c155567b9ef7880cd9b854cd00a20f4f?Expires=1636329600&Signature=S1p29iOuPMW5Sx7uj8FF2r~HMkVft3T~kHpfX69FzISd2wBMejMFuSGz3mxOKlgDg55UFrTm5oWMtMAPlknlrtsB-nXzQImsbyJ~i2guGSGOxlvOGweq9SEDPyrgePAah5CH7XiEw2xgcYmgsNWxAO5mATMVaw-l6qq4QF9-yT0aiHmqgriRxgxSLTyKLIu2aGlpPNgUvfmBUPRXs3RL5CoJL8-SQjg99jfdqfd~ihQGNgtZY2ijAHi5oBM~1rIgGRJ1365GTOb0bKm6vS~TC0gLpvHTjzGBFP-1N2W-WIQbRWXwGbt0RqV73ms6UsJwSnjQEhq7s1y7TlXfB1fnTg__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA');
+  width: 100%;
+  height: 13.8rem;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: grid;
+  place-items: center;
+  border-radius: 4px;
+}
+
+.search-form {
+  background: #ffffff;
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  min-width: 60%;
+  padding: 4px;
+}
+
+.input-group {
+  display: flex;
+  align-items: center;
+
+  &__icon {
+    font-size: 1.5rem;
+    color: #b9bdcf;
+    margin-left: 1.8rem;
+  }
+
+  &__input {
+    border: none;
+    margin-left: 1rem;
+    flex: auto;
+    padding: 1.5rem;
+    font-size: 1.6rem;
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  &__btn {
+    background: #1e86ff;
+    border-radius: 4px;
+    padding: 1.4rem 4.8rem;
+    border: none;
+    font-weight: 500;
+    font-size: 1.6rem;
+    line-height: 1.9rem;
+    cursor: pointer;
+    color: #ffffff;
+  }
+}

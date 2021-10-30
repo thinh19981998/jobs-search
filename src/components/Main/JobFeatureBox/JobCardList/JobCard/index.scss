@@ -1,0 +1,81 @@
+.card-container {
+  padding: 1.2rem;
+  background: #fff;
+  display: flex;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  &:not(:first-child) {
+    margin-top: 3rem;
+  }
+
+  &:hover {
+    border: 1px solid #1e86ff;
+  }
+}
+.card-img-container {
+  width: 9rem;
+  height: 9rem;
+  margin-right: 2rem;
+
+  img {
+    height: 100%;
+    width: 100%;
+    border-radius: 4px;
+  }
+}
+
+.card-content {
+  position: relative;
+  flex: auto;
+}
+
+.card-company {
+  font-weight: bold;
+  font-size: 1.2rem;
+  line-height: 1.4rem;
+  color: #334680;
+}
+
+.card-job {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 1.8rem;
+  line-height: 2.1rem;
+  color: #334680;
+  margin-top: 1rem;
+}
+
+.card-place {
+  position: absolute;
+  bottom: 0;
+  right: 20%;
+  display: flex;
+  align-items: center;
+  color: #b9bdcf;
+  font-size: 1.2rem;
+
+  span {
+    font-size: 1.5rem;
+    margin-right: 8px;
+  }
+
+  @media (max-width: 700px) {
+    right: 30%;
+  }
+}
+
+.card-time {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  color: #b9bdcf;
+  font-size: 1.2rem;
+
+  span {
+    margin-right: 8px;
+    font-size: 1.5rem;
+  }
+}

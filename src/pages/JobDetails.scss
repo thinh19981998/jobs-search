@@ -1,0 +1,65 @@
+.info {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2rem;
+
+  @media (max-width: 1201px) {
+    flex-direction: column;
+    margin-top: 0;
+  }
+}
+.sub-info {
+  flex-basis: 20%;
+}
+
+.goback-link {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 1.4rem;
+  line-height: 2.1rem;
+  color: #1e86ff;
+  display: flex;
+  text-decoration: none;
+  transition: all 0.2s ease;
+
+  span {
+    font-size: 1.8rem;
+  }
+
+  &:hover {
+    span {
+      margin-right: 0.5rem;
+    }
+  }
+}
+
+.more-info {
+  margin-top: 2rem;
+  &__heading {
+    font-weight: bold;
+    font-size: 1.4rem;
+    line-height: 2.1rem;
+    text-transform: uppercase;
+    color: #b9bdcf;
+  }
+  &__link {
+    font-weight: 500;
+    font-size: 1.4rem;
+    line-height: 2.1rem;
+    color: #334680;
+    display: block;
+  }
+}
+
+.job-content {
+  flex-basis: 70%;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 1.6rem;
+  line-height: 150%;
+  color: #334680;
+
+  @media (max-width: 1201px) {
+    margin-top: 4rem;
+  }
+}

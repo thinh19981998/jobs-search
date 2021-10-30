@@ -1,0 +1,59 @@
+.sideBar {
+  flex-basis: 30%;
+}
+
+.location,
+.level,
+.category {
+  font-weight: bold;
+  font-size: 1.4rem;
+  line-height: 2.1rem;
+  text-transform: uppercase;
+  color: #b9bdcf;
+
+  &:not(:first-child) {
+    margin-top: 2rem;
+  }
+
+  label {
+    display: inline-block;
+    margin-bottom: 0.5rem;
+  }
+}
+
+.location-input-group {
+  padding: 1.5rem;
+  display: flex;
+
+  background: #ffffff;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.05);
+  border-radius: 4px;
+
+  span {
+    font-size: 1.5rem;
+    margin-right: 1.6rem;
+  }
+  input {
+    border: none;
+
+    &:focus {
+      outline: none;
+    }
+  }
+}
+
+.level {
+  select {
+    display: block;
+    width: 100%;
+    text-align: center;
+  }
+}
+
+.category {
+  select {
+    display: block;
+    width: 100%;
+    text-align: center;
+  }
+}
