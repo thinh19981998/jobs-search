@@ -1,23 +1,37 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { useParams } from 'react-router';
 import { Link } from 'react-router-dom';
 import { getJobById } from '../api';
 import Header from '../components/Header';
 import Container from '../components/UI/Container';
+import { dayPast } from '../Utils';
 import './JobDetails.scss';
 
 function JobDetails({ goBackToHome }) {
   let { id } = useParams();
   const [job, setJob] = useState({});
-  useEffect(() => {
-    getJobById(id).then((res) => {
+  const [isLoading, setIsLoading] = useState(false);
+
+  const getJobData = useCallback(async () => {
+    setIsLoading(true);
+    await getJobById(id).then((res) => {
       setJob(res.data);
     });
-  }, [id]);
+    setIsLoading(false);
+  }, [id, setIsLoading]);
+
+  useEffect(() => {
+    getJobData();
+  }, [getJobData]);
 
   const link = job.refs
     ? job.refs.landing_page
     : 'https://www.themuse.com/jobs';
+
+  const days = dayPast(job.publication_date);
+
+  const resultDays =
+    +days === 0 ? 'Today' : +days === 1 ? 'yesterday' : `${days} days ago`;
 
   return (
     <Container>
@@ -43,10 +57,35 @@ function JobDetails({ goBackToHome }) {
             </p>
           </div>
         </div>
-        <div
-          dangerouslySetInnerHTML={{ __html: job.contents }}
-          className='job-content'
-        ></div>
+        <div className='main-info'>
+          <h2 className='main-info__heading'>{job.name}</h2>
+          <div className='main-info__time'>
+            <span className='material-icons'>schedule</span> {resultDays}
+          </div>
+          <div className='main-info__company'>
+            {job.company && (
+              <div className='main-info__company-img'>
+                <img
+                  src={`https://assets.themuse.com/uploaded/companies/${job.company.id}/small_logo.png`}
+                  alt=''
+                />
+              </div>
+            )}
+
+            <div className='main-info__company-info'>
+              <h3 className='company-name'>
+                {job.company && job.company.name}
+              </h3>
+              <h3 className='company-place'>
+                {job.locations && job.locations[0].name}
+              </h3>
+            </div>
+          </div>
+          <div
+            dangerouslySetInnerHTML={{ __html: job.contents }}
+            className='job-content'
+          ></div>
+        </div>
       </div>
     </Container>
   );
