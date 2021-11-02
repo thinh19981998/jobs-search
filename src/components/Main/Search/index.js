@@ -6,7 +6,11 @@ function Search({ fetchJobsByCompany }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    fetchJobsByCompany(inputRef.current.value);
+    if (inputRef.current.value.trim() === '') {
+      return;
+    } else {
+      fetchJobsByCompany(inputRef.current.value.trim());
+    }
   };
   return (
     <div className='search-container'>

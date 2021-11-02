@@ -18,6 +18,7 @@ function Home({
   levelSubmitHandler,
   categorySubmitHandler,
   isLoading,
+  totalPage,
 }) {
   const onChange = (page) => {
     fetchJobsByPage(page);
@@ -40,7 +41,7 @@ function Home({
         <Pagination
           onChange={onChange}
           current={currentPage}
-          total={990}
+          total={totalPage * 10}
           className='pagination'
         />
       )}

@@ -46,6 +46,7 @@ const level = [
 
 function App() {
   const [jobList, setJobList] = useState([]);
+  const [totalPage, setTotalPage] = useState(0);
   const [query, setQuery] = useState({
     page: 1,
     location: null,
@@ -59,7 +60,13 @@ function App() {
     setIsLoading(true);
     const urlQuery = queryString.stringify(query, { skipNull: true });
     await getJobs(urlQuery).then((res) => {
-      setJobList(res.data.results.slice(0, 5));
+      const data = res.data;
+      setJobList(data.results.slice(0, 5));
+      if (data.page_count > 99) {
+        setTotalPage(99);
+      } else {
+        setTotalPage(data.page_count - 1);
+      }
     });
     setIsLoading(false);
   }, [query, setIsLoading]);
@@ -77,7 +84,11 @@ function App() {
   };
 
   const locationSubmitHandler = (location) => {
-    setQuery({ ...query, location: location, page: 1 });
+    if (location === 'null') {
+      setQuery({ ...query, location: null, page: 1 });
+    } else {
+      setQuery({ ...query, location: location, page: 1 });
+    }
   };
 
   const levelSubmitHandler = (level) => {
@@ -121,6 +132,7 @@ function App() {
           categorySubmitHandler={categorySubmitHandler}
           levelSubmitHandler={levelSubmitHandler}
           isLoading={isLoading}
+          totalPage={totalPage}
         />
       </Route>
       <Route path='/job-details/:id'>
