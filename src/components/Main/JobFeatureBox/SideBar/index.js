@@ -38,7 +38,7 @@ function SideBar({
 
   return (
     <div className='sideBar'>
-      <form className='location'>
+      <form className='location' onSubmit={(e) => e.preventDefault()}>
         <label htmlFor='location-input'>Location</label>
         <div className='location-input-group'>
           <span className='material-icons'>public</span>
