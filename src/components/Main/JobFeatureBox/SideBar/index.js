@@ -34,7 +34,7 @@ function SideBar({
       }, 1000);
       return () => clearTimeout(timer);
     }
-  }, [searchTerm]);
+  }, [searchTerm, locationSubmitHandler]);
 
   return (
     <div className='sideBar'>

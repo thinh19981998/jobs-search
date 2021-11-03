@@ -83,13 +83,17 @@ function App() {
     setQuery({ ...query, company: companyInput, page: 1 });
   };
 
-  const locationSubmitHandler = (location) => {
+  const locationSubmitHandler = useCallback((location) => {
     if (location === 'null') {
-      setQuery({ ...query, location: null, page: 1 });
+      setQuery((prev) => {
+        return { ...prev, location: null, page: 1 };
+      });
     } else {
-      setQuery({ ...query, location: location, page: 1 });
+      setQuery((prev) => {
+        return { ...prev, location: location, page: 1 };
+      });
     }
-  };
+  }, []);
 
   const levelSubmitHandler = (level) => {
     if (level === 'null') {
